@@ -1,0 +1,32 @@
+{
+  "Goa": {
+    "tagline": "Beaches, seafood, and Portuguese-era charm.",
+    "food": ["Seafood Restaurant", "Beach Cafe", "Goan Thali"],
+    "hotel": ["Budget Hostel", "Beach Resort", "Luxury Hotel"],
+    "places": ["Baga Beach", "Fort Aguada", "Dudhsagar Falls"]
+  },
+  "Bangalore": {
+    "tagline": "Parks, cafes, and a buzzing tech city vibe.",
+    "food": ["MTR", "Empire Restaurant", "CTR Malleshwaram"],
+    "hotel": ["Treebo Hotel", "3-Star Hotel", "Luxury Suites"],
+    "places": ["Cubbon Park", "Lalbagh", "UB City"]
+  },
+  "Coorg": {
+    "tagline": "Hills, coffee estates, and misty drives.",
+    "food": ["Coorg Cuisine", "Coffee Cafe", "Homestyle Meals"],
+    "hotel": ["Homestay", "Nature Resort", "Luxury Villa"],
+    "places": ["Abbey Falls", "Raja Seat", "Coffee Plantations"]
+  },
+  "Mysore": {
+    "tagline": "Palaces, silk, and classic South Indian culture.",
+    "food": ["Mylari Dosa", "Hotel RRR", "Gayathri Tiffin Room"],
+    "hotel": ["Heritage Guesthouse", "Mid-range Hotel", "Palace-view Resort"],
+    "places": ["Mysore Palace", "Chamundi Hill", "Brindavan Gardens"]
+  },
+  "Hampi": {
+    "tagline": "UNESCO ruins, boulders, and backpacker energy.",
+    "food": ["Mango Tree Restaurant", "Roof Cafe", "Local Thali"],
+    "hotel": ["Guest House", "Eco Lodge", "Boutique Stay"],
+    "places": ["Virupaksha Temple", "Vittala Temple", "Matanga Hill"]
+  }
+}

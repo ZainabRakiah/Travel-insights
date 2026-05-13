@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEx Insights</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>TravelEx Insights <span class="emoji" aria-hidden="true">✈️</span></h1>
+            <p class="tag">Plan a simple trip outline from your budget, days, and destination.</p>
+        </header>
+
+        {% if error %}
+        <p class="error" role="alert">{{ error }}</p>
+        {% endif %}
+
+        <form class="planner-form" action="{{ url_for('plan') }}" method="post" novalidate>
+            <label for="destination">Destination</label>
+            <input
+                id="destination"
+                type="text"
+                name="destination"
+                list="destination-suggestions"
+                placeholder="e.g. Goa, Mysore, or any city"
+                autocomplete="off"
+                required
+                value="{{ destination or '' }}"
+            >
+            <datalist id="destination-suggestions">
+                {% for d in destinations %}
+                <option value="{{ d }}"></option>
+                {% endfor %}
+            </datalist>
+
+            <label for="budget">Total budget (₹)</label>
+            <input id="budget" type="number" name="budget" min="0" step="1" placeholder="8000" required>
+
+            <label for="days">Number of days</label>
+            <input id="days" type="number" name="days" min="1" step="1" placeholder="3" required>
+
+            <button type="submit" class="submit-btn">Plan my trip</button>
+        </form>
+
+        {% if result %}
+        <section class="results" id="trip-results" tabindex="-1">
+            <h2>Trip plan for {{ destination }}</h2>
+            <div class="summary">
+                <p><span class="label">Trip style</span> {{ trip_type }}</p>
+                <p><span class="label">Budget</span> ₹{{ "{:,}".format(budget) }}</p>
+                <p><span class="label">Days</span> {{ days }}</p>
+                <p><span class="label">Rough daily budget</span> ₹{{ "{:,}".format(estimated_cost) }}</p>
+            </div>
+
+            <h3>Quick tips</h3>
+            <ul class="tips">
+                {% for tip in tips %}
+                <li>{{ tip }}</li>
+                {% endfor %}
+            </ul>
+
+            <div class="grid-cards">
+                <article class="card">
+                    <h3>Stay ideas</h3>
+                    <ul>
+                        {% for hotel in hotels %}
+                        <li>{{ hotel }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Food picks</h3>
+                    <ul>
+                        {% for item in food %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Places to visit</h3>
+                    <ul>
+                        {% for place in places %}
+                        <li>{{ place }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+            </div>
+        </section>
+        {% endif %}
+
+        <footer class="footer">
+            <p>Data is illustrative — confirm bookings and routes before you travel.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
